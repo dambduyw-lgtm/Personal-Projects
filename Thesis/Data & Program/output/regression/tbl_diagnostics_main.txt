@@ -1,0 +1,174 @@
+=================================================================
+  DIAGNOSTIC TESTS: Main Findings (Core AI Intensity Index)
+  Heteroskedasticity & Multicollinearity
+=================================================================
+  Sample: S&P 100 earnings calls
+  N = 1492 observations, 94 firms
+
+-----------------------------------------------------------------
+A. BREUSCH-PAGAN TEST FOR HETEROSKEDASTICITY
+   H0: Errors are homoskedastic
+   H1: Errors are heteroskedastic  [justifies HC1 robust SEs]
+
+  Model                     BP stat   df     p-value  Decision
+------------------------------------------------------------------ 
+  Short_total               110.596    9     < 0.001  Reject H0 *** [HC SEs justified]
+  Short_pres                116.654    9     < 0.001  Reject H0 *** [HC SEs justified]
+  Short_qa                  112.008    9     < 0.001  Reject H0 *** [HC SEs justified]
+  Long_total                 40.376    9     < 0.001  Reject H0 *** [HC SEs justified]
+  Long_pres                  43.372    9     < 0.001  Reject H0 *** [HC SEs justified]
+  Long_qa                    39.574    9     < 0.001  Reject H0 *** [HC SEs justified]
+------------------------------------------------------------------ 
+Note: HC1-robust, firm-clustered SEs are applied throughout,
+      regardless of individual test outcomes.
+
+-----------------------------------------------------------------
+B. VARIANCE INFLATION FACTORS (VIF)
+   Estimated from pooled OLS on raw regressors (pre-demeaning).
+   VIF < 5: acceptable | 5-10: moderate | >10: severe
+
+  Segment: Total transcript
+  Variable                               VIF  Flag
+---------------------------------------------------- 
+  core_per_1000_total                  1.511  OK
+  lm_tone_total                        1.402  OK
+  lm_uncertainty_total                 1.366  OK
+  suescore_w                           1.105  OK
+  analyst_coverage_w                   1.642  OK
+  roa_w                                1.517  OK
+  book_to_market_w                     1.531  OK
+  firm_size_w                          1.701  OK
+  leverage_w                           1.345  OK
+  Mean VIF                             1.458
+
+  Segment: Presentation only
+  Variable                               VIF  Flag
+---------------------------------------------------- 
+  core_per_1000_pres                   1.432  OK
+  lm_tone_pres                         1.380  OK
+  lm_uncertainty_pres                  1.252  OK
+  suescore_w                           1.095  OK
+  analyst_coverage_w                   1.439  OK
+  roa_w                                1.525  OK
+  book_to_market_w                     1.540  OK
+  firm_size_w                          1.648  OK
+  leverage_w                           1.353  OK
+  Mean VIF                             1.407
+
+  Segment: Q&A only
+  Variable                               VIF  Flag
+---------------------------------------------------- 
+  core_per_1000_qa                     1.482  OK
+  lm_tone_qa                           1.308  OK
+  lm_uncertainty_qa                    1.304  OK
+  suescore_w                           1.072  OK
+  analyst_coverage_w                   1.629  OK
+  roa_w                                1.515  OK
+  book_to_market_w                     1.524  OK
+  firm_size_w                          1.706  OK
+  leverage_w                           1.317  OK
+  Mean VIF                             1.429
+
+-----------------------------------------------------------------
+C. PAIRWISE CORRELATIONS AMONG REGRESSORS
+   High correlations (|r| > 0.6) flag potential collinearity.
+
+  Segment: Total transcript
+                      AI core LM tone LM uncertainty SUE score Analyst coverage
+AI core                 1.000   0.257         -0.249     0.144            0.458
+LM tone                 0.257   1.000         -0.450     0.247            0.308
+LM uncertainty         -0.249  -0.450          1.000    -0.159           -0.365
+SUE score               0.144   0.247         -0.159     1.000            0.096
+Analyst coverage        0.458   0.308         -0.365     0.096            1.000
+Return on assets        0.318   0.138         -0.163     0.147            0.306
+Book-to-market         -0.183  -0.173          0.140    -0.040           -0.202
+Firm size (ln MktCap)   0.461   0.124         -0.134     0.057            0.480
+Leverage               -0.225   0.075          0.018    -0.092           -0.196
+                      Return on assets Book-to-market Firm size (ln MktCap)
+AI core                          0.318         -0.183                 0.461
+LM tone                          0.138         -0.173                 0.124
+LM uncertainty                  -0.163          0.140                -0.134
+SUE score                        0.147         -0.040                 0.057
+Analyst coverage                 0.306         -0.202                 0.480
+Return on assets                 1.000         -0.460                 0.448
+Book-to-market                  -0.460          1.000                -0.332
+Firm size (ln MktCap)            0.448         -0.332                 1.000
+Leverage                         0.083         -0.325                -0.158
+                      Leverage
+AI core                 -0.225
+LM tone                  0.075
+LM uncertainty           0.018
+SUE score               -0.092
+Analyst coverage        -0.196
+Return on assets         0.083
+Book-to-market          -0.325
+Firm size (ln MktCap)   -0.158
+Leverage                 1.000
+  No regressor pairs with |r| > 0.6.
+
+  Segment: Presentation only
+                      AI core LM tone LM uncertainty SUE score Analyst coverage
+AI core                 1.000   0.265         -0.179     0.152            0.409
+LM tone                 0.265   1.000         -0.416     0.229            0.149
+LM uncertainty         -0.179  -0.416          1.000    -0.087           -0.110
+SUE score               0.152   0.229         -0.087     1.000            0.096
+Analyst coverage        0.409   0.149         -0.110     0.096            1.000
+Return on assets        0.298   0.126         -0.104     0.147            0.306
+Book-to-market         -0.176  -0.149         -0.016    -0.040           -0.202
+Firm size (ln MktCap)   0.406   0.107         -0.081     0.057            0.480
+Leverage               -0.216   0.077          0.097    -0.092           -0.196
+                      Return on assets Book-to-market Firm size (ln MktCap)
+AI core                          0.298         -0.176                 0.406
+LM tone                          0.126         -0.149                 0.107
+LM uncertainty                  -0.104         -0.016                -0.081
+SUE score                        0.147         -0.040                 0.057
+Analyst coverage                 0.306         -0.202                 0.480
+Return on assets                 1.000         -0.460                 0.448
+Book-to-market                  -0.460          1.000                -0.332
+Firm size (ln MktCap)            0.448         -0.332                 1.000
+Leverage                         0.083         -0.325                -0.158
+                      Leverage
+AI core                 -0.216
+LM tone                  0.077
+LM uncertainty           0.097
+SUE score               -0.092
+Analyst coverage        -0.196
+Return on assets         0.083
+Book-to-market          -0.325
+Firm size (ln MktCap)   -0.158
+Leverage                 1.000
+  No regressor pairs with |r| > 0.6.
+
+  Segment: Q&A only
+                      AI core LM tone LM uncertainty SUE score Analyst coverage
+AI core                 1.000   0.182         -0.187     0.129            0.461
+LM tone                 0.182   1.000         -0.433     0.182            0.292
+LM uncertainty         -0.187  -0.433          1.000    -0.114           -0.312
+SUE score               0.129   0.182         -0.114     1.000            0.096
+Analyst coverage        0.461   0.292         -0.312     0.096            1.000
+Return on assets        0.316   0.087         -0.078     0.147            0.306
+Book-to-market         -0.178  -0.089          0.104    -0.040           -0.202
+Firm size (ln MktCap)   0.470   0.093         -0.102     0.057            0.480
+Leverage               -0.212   0.006         -0.013    -0.092           -0.196
+                      Return on assets Book-to-market Firm size (ln MktCap)
+AI core                          0.316         -0.178                 0.470
+LM tone                          0.087         -0.089                 0.093
+LM uncertainty                  -0.078          0.104                -0.102
+SUE score                        0.147         -0.040                 0.057
+Analyst coverage                 0.306         -0.202                 0.480
+Return on assets                 1.000         -0.460                 0.448
+Book-to-market                  -0.460          1.000                -0.332
+Firm size (ln MktCap)            0.448         -0.332                 1.000
+Leverage                         0.083         -0.325                -0.158
+                      Leverage
+AI core                 -0.212
+LM tone                  0.006
+LM uncertainty          -0.013
+SUE score               -0.092
+Analyst coverage        -0.196
+Return on assets         0.083
+Book-to-market          -0.325
+Firm size (ln MktCap)   -0.158
+Leverage                 1.000
+  No regressor pairs with |r| > 0.6.
+

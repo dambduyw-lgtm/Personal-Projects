@@ -1,0 +1,42 @@
+# ---------- OS / editor ----------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# ---------- Secrets (never commit) ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Python / R / notebooks ----------
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.Rhistory
+.RData
+.Rproj.user/
+venv/
+.venv/
+
+# ---------- Node (FinTech MVP) ----------
+node_modules/
+.next/
+*.log
+
+# ---------- MS Office lock files ----------
+~$*
+
+# ---------- Local tooling ----------
+.claude/
+
+# ---------- Too big for GitHub (>100 MB) ----------
+Customer Analytics/group_assignment_2026.csv
+Customer Analytics/lifetimes_summary_with_CLV.csv
+
+# ---------- Licensed / course data: not mine to republish ----------
+# Earnings call transcripts (thesis)
+Thesis/Data & Program/data/raw/transcript/
+# Uncomment if the vendor licence (WRDS, Compustat, LSEG) forbids sharing:
+# Thesis/Data & Program/data/raw/*.csv
+# Thesis/Data & Program/data/raw/*.xls

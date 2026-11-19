@@ -1,0 +1,13 @@
+Country,Division,League_Name,League_Quality,Player_Quality,Pricing
+NED,I,Eredivisie,High,Medium-High,Market-based
+NED,II,Keuken Kampioen Divisie,Medium-Low,Medium,Overpriced
+BEL,I,Belgian Pro League,Medium,Medium,Market-based
+BEL,II,Challenger Pro League,Medium-Low,Medium,Low
+SWE,I,Allsvenskan,Medium,Medium,Low
+SWE,II,Superettan,Low,Medium,Low
+NOR,I,Eliteserien,Medium,Medium,Overpriced
+NOR,II,OBOS Ligaen,Low,Medium-Low,Overpriced
+FIN,I,Veikkausliiga,Low,Low,Market-based
+FIN,II,Ykkonen,Low,Low,Market-based
+POR,I,Primeira Liga,Medium-High,Medium-High,Market-based
+POR,II,Ledman LigaPro,Low,Medium-Low,Undervalued

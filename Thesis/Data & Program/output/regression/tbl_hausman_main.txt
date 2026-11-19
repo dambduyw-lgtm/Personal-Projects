@@ -1,0 +1,19 @@
+=================================================================
+  Hausman Test — Main Findings (Core AI Intensity Index)
+  Fixed Effects vs. Random Effects
+  H0: Random effects consistent (no correlation with regressors)
+  H1: Fixed effects preferred (endogenous firm heterogeneity)
+=================================================================
+
+  Model (Outcome_Segment)      Chi-sq    df   p-value  Decision
+------------------------------------------------------------------------ 
+  Short_total                  90.723     9   < 0.001  FE preferred ***
+  Short_pres                   77.884     9   < 0.001  FE preferred ***
+  Short_qa                     79.275     9   < 0.001  FE preferred ***
+  Long_total                   42.425     9   < 0.001  FE preferred ***
+  Long_pres                    42.583     9   < 0.001  FE preferred ***
+  Long_qa                      42.391     9   < 0.001  FE preferred ***
+------------------------------------------------------------------------ 
+
+Note: *** = reject H0 at 5%; FE preferred when firm effects are
+      correlated with AI language measures (as expected here).
